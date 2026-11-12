@@ -57,3 +57,8 @@ Nêu giới hạn của điểm judge, của snapshot và của việc chỉ ch�
 - Giới hạn về model: Judge đang là cùng một model với Agent (Claude Sonnet 5.5) nên có thể xảy ra tình trạng bias.
 - Mỗi version chỉ đang chạy eval một lần để tránh bị mất chi phí nhiều nhưng không thể kiểm soát là kết quả đang ổn định
 - Dữ liệu data lấy từ ngày 9/11/2026, chưa phản ánh dữ liệu thực tế, và giới hạn 50 incident là trong khoảng 10 tuần của GitHub nhưng chỉ trong khoảng 2 tuần của Cloudflare.
+## 6. Phần Bonus
+- Để làm phần test này được trơn tru cho model Anthropic, với phần bonus này phải chạy nhiều token và step hơn, em đã thay biến ANTHROPIC_MAX_TOKENS=2048 từ 1024 để chạy cho mượt, ít bị dính error max token.
+- Trong test, có ba bài B1/B8/B10 đã vượt quá token 1024 như dự đoán với token tiêu tốn tương ứng 1123/1171/1237
+- Bản chạy đã thực hiện 28 model call, với chi phí token 95577/9441 cho agent và 50111/4392 cho judge
+- LIMITTION: chỉ mới chạy được một lần eval, judge và agent là cùng một mô hình
